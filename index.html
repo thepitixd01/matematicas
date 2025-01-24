@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog: Percepción de Antivirus</title>
+    <style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9; /* Fondo claro pastel */
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #ffffff; /* Fondo blanco para la sección principal */
+    border: 1px solid #d1c4e9; /* Borde pastel suave */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    max-width: 700px;
+    width: 90%;
+    padding: 40px 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #9c66b3; /* Rosa pastel para los encabezados */
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 25px;
+}
+
+p, ul {
+    font-size: 1em;
+    line-height: 1.8;
+    margin: 20px 0;
+    color: #4a4a4a;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+}
+
+table th, table td {
+    border: 1px solid #e1bee7; /* Borde suave pastel */
+    padding: 15px;
+    text-align: center;
+}
+
+table th {
+    background-color: #f3e5f5; /* Fondo pastel suave para los encabezados de la tabla */
+    color: #9c66b3; /* Color pastel para texto de encabezados */
+}
+
+table tr:nth-child(even) {
+    background-color: #fafafa; /* Color alterno muy suave para filas */
+}
+
+.btn {
+    display: inline-block;
+    background-color: #9c66b3; /* Botón con fondo rosa pastel */
+    color: #ffffff;
+    border: none;
+    padding: 15px 25px;
+    text-align: center;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 25px 0;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #7e4e98; /* Fondo más oscuro al pasar el cursor */
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.pagination {
+    font-size: 1em;
+    color: #9c66b3;
+    margin-top: 15px;
+}
+
+.footer {
+    font-size: 0.9em;
+    color: #9c66b3; /* Rosa pastel para el pie de página */
+    margin-top: 25px;
+}
+
+    </style>
+    <script>
+        function showSection(current, total, nextId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(nextId).classList.add('active');
+
+            // Actualizar el contador de página
+            const pagination = document.querySelector('.pagination');
+            pagination.textContent = `Página ${current} de ${total}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Iniciar con la primera página activa
+            showSection(1, 4, 'introduccion');
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>La Percepción de la Efectividad de los Antivirus</h1>
+        <div class="pagination"></div>
+
+        <!-- Introducción -->
+        <div id="introduccion" class="section active">
+            <h2>Introducción</h2>
+            <p>
+                En un mundo digital donde los ciberataques están a la orden del día, los usuarios buscan maneras efectivas de proteger sus dispositivos personales. Este estudio busca entender la percepción de la efectividad de los antivirus mediante un muestreo por cuotas aplicado a 150 usuarios de tecnología, distribuidos en 50 usuarios frecuentes y 100 usuarios ocasionales de aplicaciones de seguridad informática.
+            </p>
+            <button class="btn" onclick="showSection(2, 4, 'modelo')">Siguiente</button>
+        </div>
+
+        <!-- Modelo de Encuesta -->
+        <div id="modelo" class="section">
+            <h2>Modelo de Encuesta Utilizado</h2>
+            <ul>
+                <li>¿Utilizas regularmente un software antivirus en tus dispositivos personales? (Sí/No)</li>
+                <li>En una escala del 1 al 5, ¿cómo calificarías la efectividad de tu antivirus para proteger contra amenazas?</li>
+                <li>¿Has experimentado algún incidente de seguridad (malware, phishing, etc.) mientras utilizabas un antivirus? (Sí/No)</li>
+                <li>¿Qué características valoras más en un antivirus? (Opciones: Facilidad de uso, Costo, Velocidad de escaneo, Cobertura de amenazas, Otro)</li>
+                <li>¿Consideras necesario complementar el uso de un antivirus con otras medidas de seguridad (VPN, autenticación en dos pasos, etc.)? (Sí/No)</li>
+            </ul>
+            <button class="btn" onclick="showSection(3, 4, 'resultados')">Siguiente</button>
+        </div>
+
+        <!-- Resultados de la Encuesta -->
+        <div id="resultados" class="section">
+            <h2>Resultados de la Encuesta</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pregunta</th>
+                        <th>Usuarios Frecuentes (50)</th>
+                        <th>Usuarios Ocasionales (100)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Utilizan regularmente un software antivirus</td>
+                        <td>96% (48)</td>
+                        <td>45% (45)</td>
+                    </tr>
+                    <tr>
+                        <td>Calificación promedio de efectividad (1-5)</td>
+                        <td>4.2</td>
+                        <td>3.5</td>
+                    </tr>
+                    <tr>
+                        <td>Han experimentado incidentes de seguridad</td>
+                        <td>12% (6)</td>
+                        <td>35% (35)</td>
+                    </tr>
+                    <tr>
+                        <td>Característica más valorada</td>
+                        <td>Cobertura de amenazas</td>
+                        <td>Facilidad de uso</td>
+                    </tr>
+                    <tr>
+                        <td>Necesidad de medidas complementarias</td>
+                        <td>78% (39)</td>
+                        <td>60% (60)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn" onclick="showSection(4, 4, 'conclusion')">Siguiente</button>
+        </div>
+
+        <!-- Conclusión -->
+        <div id="conclusion" class="section">
+            <h2>Conclusión</h2>
+            <p>
+                El estudio demuestra que la percepción de efectividad de los antivirus varía según la frecuencia de uso. Aunque los antivirus son considerados herramientas importantes, un porcentaje significativo de usuarios complementa su uso con otras medidas de seguridad.
+            </p>
+            <p>
+                Este análisis subraya la importancia de la educación en ciberseguridad y el desarrollo de soluciones más efectivas y accesibles.
+            </p>
+            <button class="btn" onclick="showSection(1, 4, 'introduccion')">Volver al inicio</button>
+        </div>
+
+        <div class="footer">
+            © 2025 - Blog Personal | Diseñado con cariño 💖
+        </div>
+    </div>
+</body>
+</html>
